@@ -5,10 +5,24 @@ from sklearn.model_selection import train_test_split
 
 ROOT = Path(__file__).resolve().parents[1]
 
+
+def get_dataset_path() -> Path:
+    candidates = [
+        ROOT / "tourism.csv",
+        ROOT / "data" / "tourism.csv",
+    ]
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    raise FileNotFoundError(
+        "Dataset not found. Expected one of: tourism.csv or data/tourism.csv"
+    )
+
+
 def main():
 
     # Read all original customer records
-    df = pd.read_csv(ROOT / "data/tourism.csv")
+    df = pd.read_csv(get_dataset_path())
 
     original_count = len(df)
 
@@ -98,6 +112,7 @@ def main():
     print("Training rows:", len(train))
     print("Testing rows:", len(test))
     print("All rows preserved successfully.")
+
 
 if __name__ == "__main__":
     main()

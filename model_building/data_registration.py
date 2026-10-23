@@ -15,8 +15,22 @@ EXPECTED = {
     "MonthlyIncome"
 }
 
+
+def get_dataset_path() -> Path:
+    candidates = [
+        ROOT / "tourism.csv",
+        ROOT / "data" / "tourism.csv",
+    ]
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    raise FileNotFoundError(
+        "Dataset not found. Expected one of: tourism.csv or data/tourism.csv"
+    )
+
+
 def main():
-    df = pd.read_csv(ROOT / "data/tourism.csv")
+    df = pd.read_csv(get_dataset_path())
 
     missing_columns = EXPECTED - set(df.columns)
 
@@ -44,6 +58,7 @@ def main():
     print(df["ProdTaken"].value_counts())
 
     print("Data registration successful.")
+
 
 if __name__ == "__main__":
     main()
