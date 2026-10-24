@@ -196,13 +196,13 @@ def main():
     # 9. Configure MLflow tracking
     # --------------------------------------------------------
     # Use SQLite instead of the old filesystem tracking URI.
-    mlflow.set_tracking_uri(
-        "sqlite:///" + str((ROOT / "mlflow.db").resolve())
-    )
+    # Configure MLflow to use SQLite tracking.
+# The database is created within the project directory.
+mlflow.set_tracking_uri(
+    "sqlite:///" + str((ROOT / "mlflow.db").resolve())
+)
 
-    mlflow.set_experiment(
-        "Wellness Tourism XGBoost"
-    )
+mlflow.set_experiment("Wellness Tourism XGBoost")
 
     # --------------------------------------------------------
     # 10. Train, evaluate and track the model
