@@ -2,19 +2,34 @@
   "columns": [
     "Age",
     "CityTier",
-    "Occupation",
-    "Gender",
     "NumberOfPersonVisiting",
     "PreferredPropertyStar",
-    "MaritalStatus",
     "NumberOfTrips",
     "Passport",
     "OwnCar",
     "NumberOfChildrenVisiting",
-    "Designation",
-    "MonthlyIncome"
+    "MonthlyIncome",
+    "Occupation",
+    "Gender",
+    "MaritalStatus",
+    "Designation"
   ],
-  "numerical": [
+  "feature_columns": [
+    "Age",
+    "CityTier",
+    "NumberOfPersonVisiting",
+    "PreferredPropertyStar",
+    "NumberOfTrips",
+    "Passport",
+    "OwnCar",
+    "NumberOfChildrenVisiting",
+    "MonthlyIncome",
+    "Occupation",
+    "Gender",
+    "MaritalStatus",
+    "Designation"
+  ],
+  "numeric_columns": [
     "Age",
     "CityTier",
     "NumberOfPersonVisiting",
@@ -25,10 +40,55 @@
     "NumberOfChildrenVisiting",
     "MonthlyIncome"
   ],
-  "categorical": [
+  "categorical_columns": [
     "Occupation",
     "Gender",
     "MaritalStatus",
     "Designation"
-  ]
+  ],
+  "numeric_features": [
+    "Age",
+    "CityTier",
+    "NumberOfPersonVisiting",
+    "PreferredPropertyStar",
+    "NumberOfTrips",
+    "Passport",
+    "OwnCar",
+    "NumberOfChildrenVisiting",
+    "MonthlyIncome"
+  ],
+  "categorical_features": [
+    "Occupation",
+    "Gender",
+    "MaritalStatus",
+    "Designation"
+  ],
+  "categories": {
+    "Occupation": [
+      "Freelancer",
+      "Large Business",
+      "Salaried",
+      "Small Business"
+    ],
+    "Gender": [
+      "Female",
+      "Male"
+    ],
+    "MaritalStatus": [
+      "Divorced",
+      "Married",
+      "Single"
+    ],
+    "Designation": [
+      "AVP",
+      "Executive",
+      "Manager",
+      "Senior Manager",
+      "VP"
+    ]
+  },
+  "target": "ProdTaken",
+  "id_column": "CustomerID",
+  "sklearn_version": "1.7.2",
+  "xgboost_version": "3.2.0"
 }
